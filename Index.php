@@ -1,8 +1,18 @@
+
+<html>
+    <head>
+        <title> CRUD </title>
+    </head>
+    <body>
 <?php
-/**
- * Created by PhpStorm.
- * User: Michael-mac
- * Date: 25.03.17
- * Time: 21:38
- */
-echo ('Моя программа');
+
+echo ('Выберите тип операции');
+?>
+
+<p> <a href="CreateRecordForm.php" name="createRecordSelect"> Создать запись url </a> </p>
+
+
+    </body>
+</html>
+
+
