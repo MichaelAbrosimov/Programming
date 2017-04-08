@@ -1,7 +1,7 @@
 <?php
 // Метод Update
 
-
+$item = "";
 if (isset($_GET['id']))
     // если вызов из другой формы методом GET
     {//  принимаем id - предопределяем метод Update//  читаем из базы и наполняем массив для заполнения формы
@@ -24,9 +24,9 @@ if (isset($_POST['update'])) // форма "Update" вернула "Update"
                 //апдейтим
                 $Connect2DB = new PDO("mysql:host=localhost; dbname=employees", "root", '6210340', array(\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
                 $Update2DB = $Connect2DB ->prepare("UPDATE Article SET name = :name, description = :description, created_at = :created_at WHERE id = :id");
-                $Update2DB -> bindParam(':name', $_POST['Name']);
-                $Update2DB -> bindParam(':description', $_POST['Description']);
-                $Update2DB -> bindParam(':created_at', $_POST['Created_at'] );
+                $Update2DB -> bindParam(':name', $_POST['name']);
+                $Update2DB -> bindParam(':description', $_POST['description']);
+                $Update2DB -> bindParam(':created_at', $_POST['created_at'] );
                 $Update2DB -> bindParam(':id', $_POST['id'] );
 
                 $Result = $Update2DB -> execute( );
@@ -37,7 +37,7 @@ if (isset($_POST['update'])) // форма "Update" вернула "Update"
                 echo "все значения должны быть заполнены";
 
 
-               $item= $_POST;
+               $item = $_POST;
 echo "Post";
                 var_dump($_POST);
 echo "item";
@@ -53,7 +53,7 @@ if (isset($_POST['chancel']))// форма "Update" вернула "Chancel"
 
 
 
-$title = $item['name'];
+$title = $item ['name'];
 require ("/Users/Michael-mac/Documents/Programming/PHP_School/Repozit/View/updateForm.php");
 
 ?>

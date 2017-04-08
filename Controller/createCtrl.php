@@ -9,9 +9,9 @@ date_default_timezone_set("Europe/Kiev");
             $Connect2DB = new PDO("mysql:host=localhost; dbname=employees", "root", '6210340', array(\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
 
             $Create2DB = $Connect2DB->prepare("INSERT INTO Article (name, description, created_at) VALUES (:name, :description, :created_at )");
-            $Create2DB->bindParam(':name', $_POST['Name']);
-            $Create2DB->bindParam(':description', $_POST['Description']);
-            $Create2DB->bindParam(':created_at', $_POST['Created_at']);
+            $Create2DB->bindParam(':name', $_POST['name']);
+            $Create2DB->bindParam(':description', $_POST['description']);
+            $Create2DB->bindParam(':created_at', $_POST['created_at']);
             $Result = $Create2DB->execute();
             header ( 'Location:  ../index.php');
 

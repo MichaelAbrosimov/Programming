@@ -12,11 +12,11 @@
 <form action="updateCtrl.php" method="post" name="Update" autocomplete="on"  >
     <h1 style=" font-size: x-large"> Введите данные </h1>
 
-    <p>  <input type="text" name="Name" value="<?php echo ($item['name']) ?>"  / > Имя </p>
+    <p>  <input type="text" name="name" value="<?php echo ($item['name']) ?>"  / > Имя </p>
 
-    <p>  <input type="text" name="Description" value="<?php echo $item['description']?>"/> Описание </p>
+    <p>  <input type="text" name="description" value="<?php echo $item['description']?>"/> Описание </p>
 
-    <p>  <input type="date"  name="Created_at" value="<?php echo $item['created_at'] ?>" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}"/> Дата создания</p>
+    <p>  <input type="date"  name="created_at" value="<?php echo $item['created_at'] ?>" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}"/> Дата создания</p>
 
     <p>
         <input type="submit" value="Сохранить изменения"  name="update" >
