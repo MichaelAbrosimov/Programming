@@ -8,7 +8,7 @@ if (isset($_GET['id'])) {
     $DeleteFromDB -> bindParam(':id', $_GET['id'] );
     $Result =$DeleteFromDB ->execute();
 
-    header ( "Location: index.php");
-    exit ( );  //Возвращаем в таблицу Index
+    header ( "Location: ../index.php");
+
 }
 ?>
