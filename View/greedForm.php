@@ -7,7 +7,7 @@
     <Table border="1"  >
         <!-- Заголовок таблицы -->
         <caption style=" font-size:xx-large"> Article </caption>
-        <!-- Шапка таблицы --->
+        <!-- Шапка таблицы -->
         <tr style="font-weight: bold" >
             <td>Имя</td><td>Описание</td><td>Дата создания</td> <td></td>
         </tr>

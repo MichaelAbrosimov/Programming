@@ -1,4 +1,3 @@
-<?php ?>
 
 <html>
 <!-- Форма редактирования записи данных  -->
@@ -21,9 +20,8 @@
     <p>
         <input type="submit" value="Сохранить изменения"  name="update" >
 
-        <input type="reset" value="Вернуть в исходное состояние" >
 
-        <input type="submit" value="Отменить" name="chancel" >
+        <a href="../index.php"><input type="button"  value="Отменить" name="chancel" > </a>
 
         <input type="text" name="id"  value="<?php echo $item['id'] ?>" hidden>
 

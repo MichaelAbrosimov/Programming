@@ -22,7 +22,7 @@
 
         <input type="reset" value="Очистить" name="reset">
 
-        <input type="submit" value="Отменить" name="chancel" >
+        <a href="../index.php"><input type="button"  value="Отменить" name="chancel" > </a>
     </p>
 
 </form>

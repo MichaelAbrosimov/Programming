@@ -1,62 +1,25 @@
 <?php
 // Метод Update
-
+include_once '../Model/articleMd.php';
 $item = "";
+
 if (isset($_GET['id']))
     // если вызов из другой формы методом GET
-    {//  принимаем id - предопределяем метод Update//  читаем из базы и наполняем массив для заполнения формы
-        $Connect2DB = new PDO("mysql:host=localhost; dbname=employees", "root", '6210340', array(\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
-        $readFromDB = $Connect2DB->prepare("SELECT * FROM Article WHERE id=:id ");
-        $readFromDB->bindParam(":id", $_GET['id']);
-        $readFromDB->execute();
-
-        $Result = $readFromDB->fetchAll();
-
-        foreach ($Result as $item);
-
+    {
+        $item = (new Article())->readById($_GET['id']);
     }
 
-
 if (isset($_POST['update'])) // форма "Update" вернула "Update"
-        {if ($_POST['Name'] && $_POST['Description'] && $_POST['Created_at'])
-            {
-                //Проверяем чтобы все значения были заполнены
-                //апдейтим
-                $Connect2DB = new PDO("mysql:host=localhost; dbname=employees", "root", '6210340', array(\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
-                $Update2DB = $Connect2DB ->prepare("UPDATE Article SET name = :name, description = :description, created_at = :created_at WHERE id = :id");
-                $Update2DB -> bindParam(':name', $_POST['name']);
-                $Update2DB -> bindParam(':description', $_POST['description']);
-                $Update2DB -> bindParam(':created_at', $_POST['created_at'] );
-                $Update2DB -> bindParam(':id', $_POST['id'] );
-
-                $Result = $Update2DB -> execute( );
+        {if ($_POST['name'] && $_POST['description'] && $_POST['created_at'])
+            {//Проверяем чтобы все значения были заполнены и апдейтим
+                (new Article())->updateById($_POST['name'], $_POST['description'], $_POST['created_at'], $_POST['id']);
                 header ( "Location: ../index.php");
             }
             else
             {
                 echo "все значения должны быть заполнены";
-
-
-               $item = $_POST;
-echo "Post";
-                var_dump($_POST);
-echo "item";
-                var_dump($item);
-
-
+                $item = $_POST;
             }
         }
-if (isset($_POST['chancel']))// форма "Update" вернула "Chancel"
-    {
-        header ( "Location: ../index.php");
-    }
-
-
-
 $title = $item ['name'];
-require ("/Users/Michael-mac/Documents/Programming/PHP_School/Repozit/View/updateForm.php");
-
-?>
-
-
-
+require_once ("../View/updateForm.php");
